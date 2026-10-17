@@ -1,0 +1,15 @@
+{
+  "name": "skill-edge-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Skill Edge Institute – ITGC & IT Systems Audit training website (React + Vite frontend, Express backend)",
+  "scripts": {
+    "install:all": "npm install && npm install --prefix client && npm install --prefix server",
+    "dev": "concurrently -n server,client -c cyan,yellow \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm run build --prefix client",
+    "start": "npm start --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
