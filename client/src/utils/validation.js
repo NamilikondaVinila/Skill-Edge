@@ -66,7 +66,6 @@ export function enquiryToWhatsappText(v) {
     `Current role: ${v.currentRole.trim()}`,
     `Experience: ${v.experience}`,
     `Background: ${v.background}`,
-    `Preferred plan: ${v.plan || 'Not sure yet'}`,
   ];
   if (v.message.trim()) lines.push(`Question: ${v.message.trim()}`);
   lines.push('', 'Please share the course details, fee structure, upcoming batch information, and registration process.');

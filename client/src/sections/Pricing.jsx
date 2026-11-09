@@ -22,11 +22,11 @@ export default function Pricing() {
         <SectionHeading
           id="fees-title"
           eyebrow="Course fees"
-          title="Choose the Training Plan That Fits You"
-          intro="We offer multiple fee structures. Contact us for current fees, plan inclusions and payment options."
+          title="One Complete Training Program"
+          intro="Contact us for the current fee and payment options."
         />
 
-        <div className="plans">
+        <div className="plans plans--single">
           {plans.map((plan, i) => (
             <article
               key={plan.id}
@@ -40,12 +40,13 @@ export default function Pricing() {
               <p className="plan__desc">{plan.description}</p>
               <p className="plan__price">{plan.fee || <span className="plan__price--contact">Contact us for fees</span>}</p>
 
+              {(rows.some((r) => plan[r.key]) || plan.extras?.length > 0) && (
               <ul className="plan__features">
-                {rows.map((r) => (
+                {rows.filter((r) => plan[r.key]).map((r) => (
                   <li key={r.key}>
                     <Check size={16} aria-hidden="true" />
                     <span>
-                      <span className="plan__feature-label">{r.label}:</span> {plan[r.key] || 'Contact us'}
+                      <span className="plan__feature-label">{r.label}:</span> {plan[r.key]}
                     </span>
                   </li>
                 ))}
@@ -56,10 +57,11 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
+              )}
 
               <div className="plan__actions">
                 <button className="btn btn--primary btn--block" onClick={() => goToEnquiry(plan.name)}>
-                  Enquire About This Plan
+                  Enquire About Fees
                 </button>
                 <a
                   className="btn btn--wa btn--block"

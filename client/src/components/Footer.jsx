@@ -36,8 +36,6 @@ export default function Footer() {
           <h3 className="footer__title">Program</h3>
           <ul className="footer__links">
             <li><a href="#course">Course overview</a></li>
-            <li><a href="#curriculum">Curriculum</a></li>
-            <li><a href="#fees">Fee plans</a></li>
             <li><a href="#batches">Upcoming batches</a></li>
           </ul>
         </div>
@@ -47,7 +45,6 @@ export default function Footer() {
           <ul className="footer__links">
             <li><a href="#success">Success stories</a></li>
             <li><a href="#careers">Career paths</a></li>
-            <li><a href="#eligibility">Eligibility</a></li>
             <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>

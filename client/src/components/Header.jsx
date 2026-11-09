@@ -7,9 +7,7 @@ import { useEnquiry } from './EnquiryContext.js';
 const navLinks = [
   { href: '#about', label: 'About' },
   { href: '#course', label: 'Course' },
-  { href: '#curriculum', label: 'Curriculum' },
   { href: '#success', label: 'Success Stories' },
-  { href: '#fees', label: 'Fees' },
   { href: '#careers', label: 'Careers' },
   { href: '#faq', label: 'FAQ' },
   { href: '#contact', label: 'Contact' },

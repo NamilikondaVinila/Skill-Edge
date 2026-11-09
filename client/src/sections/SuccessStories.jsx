@@ -1,72 +1,77 @@
-import { useState } from 'react';
-import { TrendingUp, Building2, Route, ArrowRight, Info, Quote, ChevronDown } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { ArrowRight, Info, ChevronLeft, ChevronRight } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading.jsx';
-import { spotlightStories, placements, storiesSettings } from '../data/stories.js';
+import { placements, storiesSettings } from '../data/stories.js';
 import { useEnquiry } from '../components/EnquiryContext.js';
-
-function iconFor(category) {
-  if (category.includes('Company')) return Building2;
-  if (category.includes('Career')) return Route;
-  return TrendingUp;
-}
 
 function displayName(name) {
   if (!name) return 'Name to be added';
   return storiesSettings.showNames ? name : `${name.charAt(0)}.`;
 }
 
-function StoryCard({ story, index }) {
-  const Icon = iconFor(story.category);
+function initials(name) {
+  if (!name) return '?';
+  return name.split(' ').map((w) => w.charAt(0)).join('').slice(0, 2).toUpperCase();
+}
+
+// Best results first: sort by growth % (highest first)
+const growthValue = (g) => parseFloat(String(g).replace('%', '')) || 0;
+const rankedStories = [...placements].sort((a, b) => growthValue(b.growth) - growthValue(a.growth));
+
+function StoryCircle({ story, rank }) {
   return (
-    <article className="story reveal" style={{ '--delay': `${index * 60}ms` }}>
-      <header className="story__head">
-        <span className="story__icon"><Icon size={20} aria-hidden="true" /></span>
-        <span className="story__category">{story.category}</span>
-      </header>
-
-      {story.growth && (
-        <p className="story__growth">
-          {story.growth}
-          <small>salary growth</small>
-        </p>
-      )}
-
-      <p className="story__name">{displayName(story.name)}</p>
-
-      <dl className="story__path">
-        <div>
-          <dt>Before</dt>
-          <dd>{story.previousRole || '—'}</dd>
-          {story.previousSalary && <dd className="story__salary">{story.previousSalary}</dd>}
+    <li className="story-circle">
+      {rank <= 3 && <span className="story-circle__badge">#{rank}</span>}
+      <div className="story-circle__ring">
+        <div className="story-circle__inner">
+          <span className="story-circle__avatar">{initials(story.name)}</span>
+          <span className="story-circle__growth">{story.growth}</span>
+          <span className="story-circle__label">growth</span>
         </div>
-        <ArrowRight className="story__arrow" size={18} aria-hidden="true" />
-        <div>
-          <dt>After</dt>
-          <dd>{story.newRole || '—'}</dd>
-          {story.newSalary && <dd className="story__salary story__salary--new">{story.newSalary}</dd>}
-        </div>
-      </dl>
-
-      {story.company && <p className="story__company">{story.company}</p>}
-
-      {story.testimonial && (
-        <blockquote className="story__quote">
-          <Quote size={16} aria-hidden="true" />
-          {story.testimonial}
-        </blockquote>
-      )}
-
-      <p className={`story__tag ${story.verified ? 'story__tag--verified' : ''}`}>
-        {story.verified ? 'Independently verified' : 'Institute-reported'}
+      </div>
+      <p className="story-circle__name">{displayName(story.name)}</p>
+      <p className="story-circle__path">
+        {story.previous} <ArrowRight size={12} aria-hidden="true" /> <strong>{story.offered}</strong>
       </p>
-    </article>
+      <p className="story-circle__meta">{story.domain} → {story.company}</p>
+    </li>
   );
 }
 
 export default function SuccessStories() {
   const { goToEnquiry } = useEnquiry();
-  const [showAll, setShowAll] = useState(false);
-  const rows = showAll ? placements : placements.slice(0, 8);
+
+  // Carousel: no free scrolling — only the arrows move it, one story per click (loops around).
+  const viewportRef = useRef(null);
+  const [perView, setPerView] = useState(5);
+  const [index, setIndex] = useState(0);
+  const total = rankedStories.length;
+  const maxIndex = Math.max(0, total - perView);
+
+  useEffect(() => {
+    const fit = () => {
+      const el = viewportRef.current;
+      if (!el) return;
+      const w = el.clientWidth;
+      setPerView(w < 420 ? 1 : w < 640 ? 2 : w < 900 ? 3 : w < 1100 ? 4 : 5);
+    };
+    fit();
+    window.addEventListener('resize', fit);
+    return () => window.removeEventListener('resize', fit);
+  }, []);
+
+  useEffect(() => {
+    setIndex((i) => Math.min(i, maxIndex));
+  }, [maxIndex]);
+
+  const move = (dir) => {
+    setIndex((i) => {
+      const n = i + dir;
+      if (n > maxIndex) return 0; // after the last one, go back to the best story
+      if (n < 0) return maxIndex;
+      return n;
+    });
+  };
 
   return (
     <section id="success" className="section" aria-labelledby="success-title">
@@ -78,52 +83,40 @@ export default function SuccessStories() {
           intro="Learners from mainframes, content moderation, accounts, audit, Google mapping, AML-KYC and development backgrounds have moved into ITGC roles."
         />
 
-        <div className="stories">
-          {spotlightStories.map((s, i) => (
-            <StoryCard key={s.id} story={s} index={i} />
-          ))}
-        </div>
+        <div className="story-carousel reveal">
+          <button
+            type="button"
+            className="story-carousel__arrow story-carousel__arrow--prev"
+            onClick={() => move(-1)}
+            aria-label="Previous success stories"
+          >
+            <ChevronLeft size={24} aria-hidden="true" />
+          </button>
 
-        {storiesSettings.showPlacementTable && placements.length > 0 && (
-          <div className="placements reveal">
-            <div className="placements__head">
-              <h3>Latest ITGC placements reported by Skill Edge</h3>
-              <p>Annual packages in ₹ lakhs (L). Previous domain → offers received.</p>
-            </div>
-            <div className="table-wrap">
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Previous domain</th>
-                    <th scope="col">Previous package</th>
-                    <th scope="col">Company offers</th>
-                    <th scope="col">Package offered</th>
-                    <th scope="col">Growth</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {rows.map((p) => (
-                    <tr key={p.name + p.company}>
-                      <th scope="row">{displayName(p.name)}</th>
-                      <td>{p.domain}</td>
-                      <td>{p.previous}</td>
-                      <td>{p.company}</td>
-                      <td><strong>{p.offered}</strong></td>
-                      <td><span className="pill pill--growth">{p.growth}</span></td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            {placements.length > 8 && (
-              <button className="btn btn--link" onClick={() => setShowAll((v) => !v)} aria-expanded={showAll}>
-                {showAll ? 'Show fewer' : `Show all ${placements.length} placements`}
-                <ChevronDown size={18} className={showAll ? 'rotate' : ''} aria-hidden="true" />
-              </button>
-            )}
+          <div className="story-carousel__viewport" ref={viewportRef}>
+            <ul
+              className="story-carousel__track"
+              aria-label="Student placements, best results first"
+              style={{ '--per-view': perView, transform: `translateX(calc(-${index} * (100% + var(--gap)) / var(--per-view)))` }}
+            >
+              {rankedStories.map((p, i) => (
+                <StoryCircle key={p.name + p.company} story={p} rank={i + 1} />
+              ))}
+            </ul>
           </div>
-        )}
+
+          <button
+            type="button"
+            className="story-carousel__arrow story-carousel__arrow--next"
+            onClick={() => move(1)}
+            aria-label="Next success stories"
+          >
+            <ChevronRight size={24} aria-hidden="true" />
+          </button>
+        </div>
+        <p className="story-carousel__count" aria-live="polite">
+          Showing {index + 1}–{Math.min(index + perView, total)} of {total} success stories
+        </p>
 
         <p className="note note--muted reveal">
           <Info size={16} aria-hidden="true" />
