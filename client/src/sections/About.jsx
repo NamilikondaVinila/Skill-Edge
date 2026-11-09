@@ -2,7 +2,7 @@ import { Target, Layers, Lightbulb, MessagesSquare, Compass } from 'lucide-react
 
 const pillars = [
   { icon: Target, title: 'Career-focused learning', text: 'Every module connects back to the work ITGC and IT audit teams actually do.' },
-  { icon: Layers, title: 'Structured training', text: 'A planned 30-class journey that builds step by step from the basics.' },
+  { icon: Layers, title: 'Structured training', text: 'A step-by-step program that builds from the basics, one topic at a time.' },
   { icon: Lightbulb, title: 'Practical examples & scenarios', text: 'Concepts explained through real-world style audit situations, not just theory.' },
   { icon: MessagesSquare, title: 'Interview preparation', text: 'Practice for the questions and discussions common in ITGC interviews.' },
   { icon: Compass, title: 'Guidance for career transitions', text: 'Support in positioning your existing experience for a move into IT audit.' },
