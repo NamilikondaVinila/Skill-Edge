@@ -47,5 +47,5 @@ export function whatsappLink(message = siteConfig.whatsappMessage) {
 }
 
 export function planWhatsappMessage(planName) {
-  return `Hello Skill Edge Institute, I would like to know the fees and details of the ${planName} for the ITGC / IT Systems Audit training program. Please share the fee structure, payment options, and upcoming batch information.`;
+  return `Hello Skill Edge Institute, I would like to know the fees and details of the ITGC / IT Systems Audit training program. Please share the fee structure, payment options, and upcoming batch information.`;
 }

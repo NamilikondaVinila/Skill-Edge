@@ -33,11 +33,11 @@ export const faqs = [
   },
   {
     q: 'What topics will be covered?',
-    a: 'The proposed curriculum covers ITGC and IT audit fundamentals, control objectives, user access management, joiner-mover-leaver processes, privileged access and segregation of duties, change management, IT operations and backups, incident management, evidence and documentation, risk assessment and control testing, walkthroughs and remediation tracking, practical case studies, and interview preparation. See the curriculum section above for details.',
+    a: 'The proposed curriculum covers ITGC and IT audit fundamentals, control objectives, user access management, joiner-mover-leaver processes, privileged access and segregation of duties, change management, IT operations and backups, incident management, evidence and documentation, risk assessment and control testing, walkthroughs and remediation tracking, practical case studies, and interview preparation.',
   },
   {
     q: 'What are the course fees?',
-    a: 'The institute offers multiple fee plans. Please contact us on WhatsApp or through the enquiry form for current fees and payment options.',
+    a: 'There is one complete training program. Please contact us on WhatsApp or through the enquiry form for current fees and payment options.',
   },
   {
     q: 'Are online classes available?',
@@ -57,6 +57,6 @@ export const faqs = [
   },
   {
     q: 'How can I register?',
-    a: 'Fill in the enquiry form on this page, or message us on WhatsApp. Our team will share the course details, fee plans, upcoming batch dates and the registration process.',
+    a: 'Fill in the enquiry form on this page, or message us on WhatsApp. Our team will share the course details, fees, upcoming batch dates and the registration process.',
   },
 ];

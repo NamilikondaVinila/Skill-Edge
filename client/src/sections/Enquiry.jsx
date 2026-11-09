@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { Phone, Mail, MapPin, Send, Loader2, CheckCircle2, AlertCircle, Info } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon.jsx';
 import { siteConfig, whatsappLink } from '../config/siteConfig.js';
-import { plans } from '../data/plans.js';
 import { useEnquiry } from '../components/EnquiryContext.js';
 import {
   countryCodes,
@@ -119,7 +118,7 @@ export default function Enquiry() {
           <p className="eyebrow eyebrow--light">Enquiry &amp; registration</p>
           <h2 id="enquiry-title">Take the first step towards an ITGC career</h2>
           <p className="enquiry__lead">
-            Share a few details and our team will get back to you with course details, fee plans, upcoming batch dates
+            Share a few details and our team will get back to you with course details, fees, upcoming batch dates
             and the registration process.
           </p>
 
@@ -214,15 +213,6 @@ export default function Enquiry() {
                     <option value="">Select experience</option>
                     {experienceOptions.map((o) => (
                       <option key={o} value={o}>{o}</option>
-                    ))}
-                  </select>
-                </Field>
-
-                <Field id="plan" label="Preferred fee plan" error={errors.plan}>
-                  <select id="plan" name="plan" value={values.plan} onChange={update}>
-                    <option value="">Not sure yet</option>
-                    {plans.map((p) => (
-                      <option key={p.id} value={p.name}>{p.name}</option>
                     ))}
                   </select>
                 </Field>

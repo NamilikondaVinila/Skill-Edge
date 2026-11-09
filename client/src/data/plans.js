@@ -1,5 +1,5 @@
 /**
- * FEE PLANS
+ * COURSE FEE  (Skill Edge offers a single training plan)
  * Replace `null` values with confirmed details. Anything left as `null`
  * shows "Contact us" on the website — no prices are invented.
  *
@@ -15,35 +15,9 @@
 
 export const plans = [
   {
-    id: 'basic',
-    name: 'Basic Plan',
-    description: 'Core ITGC training for professionals getting started.',
-    fee: null,
-    classes: null,
-    resources: null,
-    interviewPrep: null,
-    mentoring: null,
-    extras: [],
-    paymentOptions: null,
-    recommended: false,
-  },
-  {
-    id: 'standard',
-    name: 'Standard Plan',
-    description: 'Training plus additional preparation support.',
-    fee: null,
-    classes: null,
-    resources: null,
-    interviewPrep: null,
-    mentoring: null,
-    extras: [],
-    paymentOptions: null,
-    recommended: false,
-  },
-  {
-    id: 'premium',
-    name: 'Premium Plan',
-    description: 'The most complete level of training and guidance.',
+    id: 'complete',
+    name: 'ITGC / IT Systems Audit Training',
+    description: 'One complete program covering ITGC concepts, audit work and interview preparation.',
     fee: null,
     classes: null,
     resources: null,

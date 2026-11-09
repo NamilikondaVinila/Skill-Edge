@@ -37,14 +37,8 @@ export default function CourseOverview() {
           </dl>
 
           <aside className="summary-card reveal" aria-label="Course summary">
-            <p className="summary-card__label">Course summary</p>
-            <h3>ITGC / IT Systems Audit</h3>
-            <ul className="summary-card__list">
-              <li><span>Classes</span><strong>30</strong></li>
-              <li><span>Duration</span><strong>~2 months</strong></li>
-              <li><span>Experience</span><strong>2+ years</strong></li>
-              <li><span>Coding</span><strong>Not required for core concepts</strong></li>
-            </ul>
+            <p className="summary-card__label">Have questions?</p>
+            <h3>Talk to us about fees and the next batch</h3>
             <button className="btn btn--accent btn--block" onClick={() => goToEnquiry()}>
               Enquire About Fees <ArrowRight size={18} aria-hidden="true" />
             </button>
