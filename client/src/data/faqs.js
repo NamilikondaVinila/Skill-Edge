@@ -41,7 +41,7 @@ export const faqs = [
   },
   {
     q: 'Are online classes available?',
-    a: 'Free demo classes are conducted live online via Microsoft Teams. Please contact us to confirm the class format for the upcoming training batch.',
+    a: 'Yes. All classes are conducted live online, including the free demo classes, which run on Microsoft Teams.',
   },
   {
     q: 'Will interview preparation be provided?',

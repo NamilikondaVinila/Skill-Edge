@@ -1,17 +1,8 @@
-import { ArrowRight, BookOpenCheck, CalendarClock, BriefcaseBusiness, UsersRound, MessagesSquare, CodeXml, ShieldCheck } from 'lucide-react';
+import { ArrowRight, ShieldCheck } from 'lucide-react';
 import heroImg from '../assets/hero-professionals.webp';
 import WhatsAppIcon from '../components/WhatsAppIcon.jsx';
 import { whatsappLink } from '../config/siteConfig.js';
 import { useEnquiry } from '../components/EnquiryContext.js';
-
-const benefits = [
-  { icon: BookOpenCheck, text: '30 structured classes' },
-  { icon: CalendarClock, text: 'Approx. 2 months of training' },
-  { icon: BriefcaseBusiness, text: 'For professionals with 2+ years of experience' },
-  { icon: UsersRound, text: 'Technical & non-technical backgrounds welcome' },
-  { icon: MessagesSquare, text: 'Interview preparation & career guidance' },
-  { icon: CodeXml, text: 'No advanced coding for core ITGC concepts' },
-];
 
 export default function Hero() {
   const { goToEnquiry } = useEnquiry();
@@ -69,17 +60,6 @@ export default function Hero() {
             <span>months program</span>
           </div>
         </div>
-      </div>
-
-      <div className="container">
-        <ul className="hero__benefits">
-          {benefits.map(({ icon: Icon, text }) => (
-            <li key={text} className="hero__benefit">
-              <span className="hero__benefit-icon"><Icon size={20} aria-hidden="true" /></span>
-              <span>{text}</span>
-            </li>
-          ))}
-        </ul>
       </div>
     </section>
   );

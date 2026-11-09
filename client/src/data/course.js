@@ -9,13 +9,9 @@
 export const courseOverview = {
   title: 'ITGC / IT Systems Audit – Complete Training Program',
   facts: [
-    { label: 'Duration', value: 'Approximately 2 months' },
-    { label: 'Total classes', value: '30 structured classes' },
-    { label: 'Eligibility', value: 'Professionals with 2+ years of experience (subject to the institute’s final policy)' },
-    { label: 'Background', value: 'Technical and non-technical professionals' },
-    // Learning format is not confirmed yet — update when decided (e.g. 'Live online via Microsoft Teams').
-    { label: 'Learning format', value: 'Contact us for the current batch format' },
-    { label: 'Course level', value: 'Beginner-friendly for professionals entering the ITGC domain' },
+    { label: 'Program', value: '30 classes over about 2 months' },
+    { label: 'Who it’s for', value: 'Professionals with 2+ years of experience, from technical or non-technical backgrounds' },
+    { label: 'Learning format', value: 'Live online classes' },
   ],
 };
 

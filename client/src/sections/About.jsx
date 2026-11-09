@@ -1,11 +1,10 @@
-import { Target, Layers, Lightbulb, MessagesSquare, Compass } from 'lucide-react';
+import { Sprout, CodeXml, Lightbulb, Compass } from 'lucide-react';
 
 const pillars = [
-  { icon: Target, title: 'Career-focused learning', text: 'Every module connects back to the work ITGC and IT audit teams actually do.' },
-  { icon: Layers, title: 'Structured training', text: 'A planned 30-class journey that builds step by step from the basics.' },
-  { icon: Lightbulb, title: 'Practical examples & scenarios', text: 'Concepts explained through real-world style audit situations, not just theory.' },
-  { icon: MessagesSquare, title: 'Interview preparation', text: 'Practice for the questions and discussions common in ITGC interviews.' },
-  { icon: Compass, title: 'Guidance for career transitions', text: 'Support in positioning your existing experience for a move into IT audit.' },
+  { icon: Sprout, title: 'Beginner-friendly', text: 'Starts from the basics. No audit or IT background needed.' },
+  { icon: CodeXml, title: 'No coding required', text: 'Core ITGC work is about processes and controls, not programming.' },
+  { icon: Lightbulb, title: 'Practical & job-focused', text: 'Real-world audit scenarios that mirror what IT audit teams actually do.' },
+  { icon: Compass, title: 'Interview & job support', text: 'Interview practice, profile positioning and help finding the right openings.' },
 ];
 
 export default function About() {
@@ -17,13 +16,8 @@ export default function About() {
             <p className="eyebrow">About Skill Edge Institute</p>
             <h2 id="about-title">Your experience is the starting point. We help you build on it.</h2>
             <p>
-              Skill Edge Institute helps experienced professionals explore career opportunities in ITGC and IT Systems
-              Audit through structured training, practical learning, and career-focused guidance.
-            </p>
-            <p>
-              Our program is designed to make complex audit and compliance concepts easier to understand for learners
-              from different professional backgrounds — whether you come from finance, accounting, audit, BPO,
-              operations, content moderation, Google mapping or a technical role.
+              We help working professionals from finance, audit, BPO, operations or tech roles move into ITGC and IT
+              Systems Audit, with every concept explained simply and practically.
             </p>
           </div>
           <div className="about__cards">

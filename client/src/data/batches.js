@@ -39,7 +39,7 @@ export const batches = [
     startDate: 'To be announced',
     duration: 'Approximately 2 months (30 classes)',
     schedule: 'To be announced',
-    format: 'To be confirmed',
+    format: 'Live online classes',
     status: 'announced',
     endsAt: null,
   },

@@ -1,11 +1,11 @@
-import { Clock, BookOpenCheck, BadgeCheck, UsersRound, MonitorPlay, GraduationCap, ArrowRight } from 'lucide-react';
+import { BookOpenCheck, UsersRound, MonitorPlay, ArrowRight } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading.jsx';
 import WhatsAppIcon from '../components/WhatsAppIcon.jsx';
 import { courseOverview } from '../data/course.js';
 import { whatsappLink } from '../config/siteConfig.js';
 import { useEnquiry } from '../components/EnquiryContext.js';
 
-const icons = [Clock, BookOpenCheck, BadgeCheck, UsersRound, MonitorPlay, GraduationCap];
+const icons = [BookOpenCheck, UsersRound, MonitorPlay];
 
 export default function CourseOverview() {
   const { goToEnquiry } = useEnquiry();
@@ -17,7 +17,7 @@ export default function CourseOverview() {
           id="course-title"
           eyebrow="Course overview"
           title={courseOverview.title}
-          intro="A beginner-friendly program that takes you from the basics of IT general controls to audit execution, documentation and interview readiness."
+          intro="From the basics of IT general controls to audit execution, documentation and interview readiness."
         />
 
         <div className="course">
