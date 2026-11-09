@@ -11,8 +11,7 @@ export const courseOverview = {
   facts: [
     { label: 'Program', value: '30 classes over about 2 months' },
     { label: 'Who it’s for', value: 'Professionals with 2+ years of experience, from technical or non-technical backgrounds' },
-    // Learning format is not confirmed yet — update when decided (e.g. 'Live online via Microsoft Teams').
-    { label: 'Learning format', value: 'Contact us for the current batch format' },
+    { label: 'Learning format', value: 'Live online classes' },
   ],
 };
 

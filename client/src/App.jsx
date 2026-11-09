@@ -10,7 +10,6 @@ import FloatingWhatsApp from './components/FloatingWhatsApp.jsx';
 import Hero from './sections/Hero.jsx';
 import About from './sections/About.jsx';
 import CourseOverview from './sections/CourseOverview.jsx';
-import WhyChoose from './sections/WhyChoose.jsx';
 import SuccessStories from './sections/SuccessStories.jsx';
 import Careers from './sections/Careers.jsx';
 import Salary from './sections/Salary.jsx';
@@ -38,7 +37,6 @@ export default function App() {
         <Hero />
         <About />
         <CourseOverview />
-        <WhyChoose />
         <SuccessStories />
         <Careers />
         <Salary />
